@@ -36,7 +36,7 @@
 
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
-  --first-color: hsl(0, 98%, 50%);
+  --first-color: hsl(22, 98%, 50%);
   --black-color: hsl(0, 0%, 0%);
   --black-color-light: hsl(0, 0%, 40%);
   --white-color: hsl(0, 0%, 95%);
@@ -985,6 +985,14 @@ margin-bottom: .5rem;
 
 .contact__social-link:hover{
   background-color: var(--first-color);
+}
+
+.contact__message{
+  color: var(--white-color);
+  font-size: var(--small-font-size);
+  position: absolute;
+  bottom: -1.6rem;
+  left: 0;
 }
 /*=============== FOOTER ===============*/
 
