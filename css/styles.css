@@ -1241,7 +1241,8 @@ margin-bottom: .5rem;
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
-@media screen and (max-width: 360px){
+@media screen and (max-width: 550px)
+{
   .container{
     margin-inline: 1rem;
   }
@@ -1269,7 +1270,8 @@ margin-bottom: .5rem;
 }
 
 /* For medium devices */
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 576px) 
+{
   .home__container,
   .about__container,
   .projects__container,
@@ -1315,4 +1317,114 @@ margin-bottom: .5rem;
   
 }
 
-/* For large devices */
+
+
+@media screen and (min-width: 720px)
+  {
+    .services__container{
+      grid-template-columns: repeat(2,250px);
+    }
+
+    .projects__container , .certificate__container{
+      grid-template-columns: repeat(2, 350px);
+    }
+  }
+
+
+
+  /* For large devices */
+  @media screen and (min-width: 1150px)
+{
+    .container{
+      margin-inline: auto;
+    }
+
+    .section{
+      padding-block: 7rem 2rem;
+    }
+    .section__title-1::after,
+    .section__title-2::after{
+      width: 70px;
+      height: 48px;
+    }
+
+    .geometric-box{
+      transform: scale(1.2);
+    }
+
+    .nav{
+      height: calc(--header-height) +2rem;
+      column-gap: 4rem;
+    }
+
+    .nav__close,
+    .nav__toggle,
+    .nav__title,
+    .nav__name{
+      display: none;
+    }
+
+    .nav__list{
+      flex-direction: row;
+      column-gap: 4rem;
+    }
+
+    .nav__menu{
+      margin-left: auto;
+    }
+
+    .nav__link{
+      color: var(--text-color);
+      font-size: var(--normal-font-size);
+    }
+
+    .nav__link:hover{
+      color: var(--title-color);
+    }
+
+    .nav__link::after{
+      background-color: var(--title-color);
+    }
+
+    .active-link{
+      color: var(--title-color);
+    }
+
+    .nav__link-button{
+      background-color: var(--black-color);
+      color: var(--white-color);
+      padding: 1.1rem 1.5rem;
+    }
+
+    .nav__link-button:hover{
+      color: var(--white-color);
+    }
+
+    .nav__link-button::after{
+      background-color: transparent;
+    }
+
+    .change-theme{
+      color: var(--text-color);
+    }
+
+    .change-theme:hover{
+      color: var(--title-color);
+    }
+
+    .home__container{
+      grid-template-columns: repeat(2, 460px);
+      gap: 2rem 4rem;
+      align-items: center;
+      padding-block: 5.5rem;
+    }
+
+    .home__perfil{
+      grid-column: 2 / 3;
+      grid-row: 1 / 3;
+    }
+
+    .home__image{
+      width: 350px;
+    }
+}
