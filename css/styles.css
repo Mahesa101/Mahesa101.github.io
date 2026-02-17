@@ -1241,7 +1241,7 @@ margin-bottom: .5rem;
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
-@media screen and (max-width: 550px)
+@media screen and (max-width: 320px)
 {
   .container{
     margin-inline: 1rem;
