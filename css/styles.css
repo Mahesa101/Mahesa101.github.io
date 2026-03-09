@@ -576,13 +576,33 @@ body.dark-theme {
 
 /*=============== BUTTON ===============*/
 
+
 .button,
-.button__ghost {
+.button__ghost,.button__skill {
   display: flex;
   align-items: center;
   justify-content: center;
   column-gap: 0.5rem;
 }
+
+.button__skill{
+  position: relative;
+  top: -2.5rem;
+  left: -1.9rem;
+  background-color: var(--black-color);
+  padding: 0.5rem;
+  width: 8.5rem;
+  box-sizing: border-box;
+  color: var(--white-color);
+  font-weight: var(--font-medium);
+  transition: background-color 0.4s;
+}
+
+.button__skill img {
+  width: 30px;
+  height: 30px;
+}
+
 
 .button {
   background-color: var(--black-color);
@@ -704,6 +724,13 @@ body.dark-theme {
   list-style: square;
   color: var(--title-color);
   margin-bottom: 3rem;
+}
+
+.about__skills{
+display: grid;
+align-items: center;
+row-gap: 0.3rem;
+grid-template-columns: repeat(2, 141px);
 }
 
 .about__buttons {
