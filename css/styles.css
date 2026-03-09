@@ -588,7 +588,7 @@ body.dark-theme {
 .button__skill{
   position: relative;
   top: -2.5rem;
-  left: -1.9rem;
+  left: -0.5rem;
   background-color: var(--black-color);
   padding: 0.5rem;
   width: 8.5rem;
@@ -728,9 +728,10 @@ body.dark-theme {
 
 .about__skills{
 display: grid;
+justify-content: center;
 align-items: center;
 row-gap: 0.3rem;
-grid-template-columns: repeat(2, 141px);
+grid-template-columns: repeat(3, 145px);
 }
 
 .about__buttons {
