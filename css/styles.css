@@ -576,16 +576,16 @@ body.dark-theme {
 
 /*=============== BUTTON ===============*/
 
-
 .button,
-.button__ghost,.button__skill {
+.button__ghost,
+.button__skill {
   display: flex;
   align-items: center;
   justify-content: center;
   column-gap: 0.5rem;
 }
 
-.button__skill{
+.button__skill {
   position: relative;
   top: -2.5rem;
   left: -0.5rem;
@@ -602,7 +602,6 @@ body.dark-theme {
   width: 30px;
   height: 30px;
 }
-
 
 .button {
   background-color: var(--black-color);
@@ -726,12 +725,12 @@ body.dark-theme {
   margin-bottom: 3rem;
 }
 
-.about__skills{
-display: grid;
-justify-content: center;
-align-items: center;
-row-gap: 0.3rem;
-grid-template-columns: repeat(2, 145px);
+.about__skills {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  row-gap: 0.3rem;
+  grid-template-columns: repeat(2, 141px);
 }
 
 .about__buttons {
@@ -913,9 +912,10 @@ grid-template-columns: repeat(2, 145px);
 
 .certificate__button {
   position: absolute;
-  right: 1rem;
+  right: 0rem;
   bottom: -1.5rem;
-  padding: 1rem;
+  padding: 0.5rem;
+  width: 25.7rem;
 }
 
 .certificate__content {
@@ -1307,6 +1307,11 @@ grid-template-columns: repeat(2, 145px);
     justify-content: center;
   }
 
+  .certificate__button {
+    position: absolute;
+    width: 19.8rem;
+  }
+
   .contact__data {
     width: 350px;
     padding: 4rem 1.5rem;
@@ -1351,7 +1356,13 @@ grid-template-columns: repeat(2, 145px);
 
   .projects__container,
   .certificate__container {
-    grid-template-columns: repeat(2, 350px);
+    grid-template-columns: repeat(3, 350px);
+  }
+
+  .about__skills {
+    display: grid;
+    grid-template-columns: repeat(3, 140px);
+    row-gap: 0.3rem;
   }
 }
 
@@ -1611,6 +1622,11 @@ grid-template-columns: repeat(2, 145px);
 
   .about__buttons {
     justify-content: initial;
+  }
+
+  .button__skill {
+    position: relative;
+    top: -4.5rem;
   }
 
   .button__ghost {
