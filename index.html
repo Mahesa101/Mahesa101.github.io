@@ -16,40 +16,45 @@
 
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="css/styles.css" />
-
-    <title>Responsive portfolio website Rian - Bedimcode</title>
+    <title>Three Mahesa Agsa Ramadhan - Portfolio</title>
   </head>
   <body>
+    <!-- ==================== LOADER ==================== -->
+    <div class="loader" id="loader">
+      <div class="loader__box">
+        <span class="loader__letter">Mahesa</span>
+        <p class="loader__typing" id="loader-typing"></p>
+        <div class="loader__bar"></div>
+      </div>
+    </div>
     <!--==================== HEADER ====================-->
     <header class="header" id="header">
       <nav class="nav container">
-        <a href="#" class="nav__log">
+        <!-- ============================================================
+             GANTI: Huruf inisial (M) dan nama singkat di navbar
+             ============================================================ -->
+        <a href="#" class="nav__logo">
           <span class="nav__logo-circle">M</span>
           <span class="nav__logo-name">Three Mahesa Agsa R</span>
         </a>
 
         <div class="nav__menu" id="nav-menu">
           <span class="nav__title">Menu</span>
-
           <h3 class="nav__name">Mahesa</h3>
 
           <ul class="nav__list">
             <li class="nav__item">
               <a href="#home" class="nav__link active-link">Home</a>
             </li>
-
             <li class="nav__item">
               <a href="#about" class="nav__link">About Me</a>
             </li>
-
             <li class="nav__item">
               <a href="#projects" class="nav__link">Projects</a>
             </li>
-
             <li class="nav__item">
               <a href="#certificate" class="nav__link">Certificate</a>
             </li>
-
             <li class="nav__item">
               <a href="#contact" class="nav__link nav__link-button"
                 >Contact Me</a
@@ -57,17 +62,13 @@
             </li>
           </ul>
 
-          <!-- Cloese button-->
           <div class="nav__close" id="nav-close">
             <i class="ri-close-line"></i>
           </div>
         </div>
 
         <div class="nav__buttons">
-          <!-- Theme button -->
           <i class="ri-moon-line change-theme" id="theme-button"></i>
-
-          <!-- Toggle button -->
           <div class="nav__toggle" id="nav-toggle">
             <i class="ri-menu-search-line"></i>
           </div>
@@ -80,30 +81,38 @@
       <!--==================== HOME ====================-->
       <section class="home section" id="home">
         <div class="home__containter container grid">
+          <!-- ============================================================
+               GANTI: Nama lengkap kamu
+               ============================================================ -->
           <h1 class="home__name">Three Mahesa Agsa Ramadhan</h1>
 
           <div class="home__perfil">
             <div class="home__image">
-              <img src="img/home-perfil.jpg" alt="image" class="home__img" />
-
+              <!-- ============================================================
+                   GANTI: Foto profil utama (taruh di folder img/)
+                   ============================================================ -->
+              <img
+                src="img/home-perfil.jpg"
+                alt="Mahesa profile"
+                class="home__img"
+              />
               <div class="home__shadow"></div>
-
               <img src="img/curved-arrow.svg" alt="" class="home__arrow" />
-
               <img src="img/random-lines.svg" alt="" class="home__line" />
-
               <div class="geometric-box"></div>
             </div>
 
             <div class="home__social">
+              <!-- ============================================================
+                   GANTI: Link sosial media kamu
+                   Kalau belum punya, biarkan href="" dulu
+                   ============================================================ -->
               <a href="" target="_blank" class="home__social-link">
                 <i class="ri-instagram-line"></i>
               </a>
-
               <a href="" target="_blank" class="home__social-link">
                 <i class="ri-linkedin-line"></i>
               </a>
-
               <a
                 href="https://github.com/Mahesa101"
                 target="_blank"
@@ -113,20 +122,21 @@
               </a>
             </div>
           </div>
+
           <div class="home__info">
+            <!-- ============================================================
+                 GANTI: Deskripsi singkat di bagian hero
+                 ============================================================ -->
             <p class="home__description">
-              <b>Back-end Developer</b> Engineering the core of digital
-              products. I specialize in building scalable back-end
-              infrastructures that are as robust in their security as they are
-              elegant in their logic.
+              <b id="typing-text"></b> — building digital products from the
+              core. Self-taught, detail-oriented, and always learning.
             </p>
 
             <a href="#about" class="home__scroll">
               <div class="home__scroll-box">
                 <i class="ri-arrow-down-s-line"></i>
               </div>
-
-              <span class="home__scroll-text"> Scroll Down</span>
+              <span class="home__scroll-text">Scroll Down</span>
             </a>
           </div>
         </div>
@@ -141,68 +151,87 @@
 
           <div class="about__perfil">
             <div class="about__image">
-              <img src="img/about-perfil.jpg" alt="image" class="about__img" />
-
+              <!-- ============================================================
+                   GANTI: Foto untuk section About (bisa sama atau beda)
+                   ============================================================ -->
+              <img
+                src="img/about-perfil.jpg"
+                alt="About Mahesa"
+                class="about__img"
+              />
               <div class="about__shadow"></div>
-
               <div class="geometric-box"></div>
-
               <img src="img/random-lines.svg" alt="" class="about__line" />
               <div class="about__box"></div>
             </div>
           </div>
 
           <div class="about__info">
+            <!-- ============================================================
+                 GANTI: Paragraf deskripsi diri di About
+                 ============================================================ -->
             <p class="about__description">
-              Specializing in the development of
-              <b>secure, high-performance digital infrastructures</b>, I believe
-              <b>superior</b> architecture arises from a
-              <b>multidisciplinary synergy of technology, psychology, and art</b
+              Specializing in <b>web development and back-end systems</b>, I
+              believe superior work comes from a
+              <b>multidisciplinary mindset — technology, psychology, and art</b
               >. <br /><br />
-              I thrive on resolving complex challenges through
-              <b>innovative engineering</b>, ensuring every system is
-              <b>scalable, secure, and built for the future</b>.
+              Self-taught and actively building real projects, I focus on
+              writing
+              <b>clean, structured, and functional code</b>.
             </p>
-
-
-
-
-            <!--==================== Skill ====================-->
-
 
             <ul class="about__list">
               <li class="about__item"><b>My Skills Are:</b></li>
             </ul>
 
             <div class="about__skills">
+              <!-- ============================================================
+                   TEMPLATE SKILL — salin blok ini untuk tambah skill baru
+                   Ganti: src gambar logo, dan teks nama skill
+                   Logo bisa download dari: https://devicon.dev/
+                   ============================================================
+
+                   <div class="button__skill">
+                     <img src="/img/NAMA-LOGO.svg" alt="nama skill">
+                     <span>Nama Skill</span>
+                   </div>
+
+                   ============================================================ -->
 
               <div class="button__skill">
-                <img src="/img/javascript.svg" alt="javascript logo">
+                <img src="/img/javascript.svg" alt="javascript logo" />
                 <span>Javascript</span>
               </div>
 
-               <div class="button__skill">
-                <img src="/img/git.svg" alt="javascript logo">
+              <div class="button__skill">
+                <img src="/img/PHP.svg" alt="php logo" />
+                <span>PHP</span>
+              </div>
+
+              <div class="button__skill">
+                <img src="/img/Myslq.svg" alt="php logo" />
+                <span>Mysql</span>
+              </div>
+
+              <div class="button__skill">
+                <img src="/img/git.svg" alt="git logo" />
                 <span>Git</span>
               </div>
 
               <div class="button__skill">
-                <img src="/img/github.svg" alt="javascript logo">
+                <img src="/img/github.svg" alt="github logo" />
                 <span>GitHub</span>
               </div>
-                 
-
             </div>
-
-
-
 
             <div class="about__buttons">
               <a href="#contact" class="button">
                 <i class="ri-send-plane-line"></i> Contact Me
               </a>
-
-              <a href="link" target="_blank" class="button__ghost">
+              <a href="img/CV-Mahesa.pdf" download class="button__cv">
+                <i class="ri-download-line"></i> Download CV
+              </a>
+              <a href="" target="_blank" class="button__ghost">
                 <i class="ri-linkedin-box-line"></i>
               </a>
             </div>
@@ -217,63 +246,78 @@
         </h2>
 
         <div class="services__container container grid">
+          <!-- ============================================================
+               TEMPLATE SERVICE — salin blok ini untuk tambah service baru
+               Ganti: icon (cari di remixicon.com), judul, dan deskripsi
+               ============================================================
+
+               <article class="services__card">
+                 <div class="services__border"></div>
+                 <div class="services__content">
+                   <div class="services__icon">
+                     <div class="services__box"></div>
+                     <i class="ri-NAMA-ICON-line"></i>
+                   </div>
+                   <h2 class="services__title">Nama Service</h2>
+                   <p class="services__description">Deskripsi singkat service ini.</p>
+                 </div>
+               </article>
+
+               ============================================================ -->
+
           <article class="services__card">
             <div class="services__border"></div>
-
             <div class="services__content">
               <div class="services__icon">
                 <div class="services__box"></div>
                 <i class="ri-settings-3-line"></i>
               </div>
-
               <h2 class="services__title">API Development</h2>
-
-              <p class="services__description"></p>
+              <p class="services__description">
+                Building structured and documented REST APIs.
+              </p>
             </div>
           </article>
 
           <article class="services__card">
             <div class="services__border"></div>
-
             <div class="services__content">
               <div class="services__icon">
                 <div class="services__box"></div>
                 <i class="ri-server-line"></i>
               </div>
-
               <h2 class="services__title">Database Architecture</h2>
-
-              <p class="services__description"></p>
+              <p class="services__description">
+                Designing clean and efficient database structures.
+              </p>
             </div>
           </article>
 
           <article class="services__card">
             <div class="services__border"></div>
-
             <div class="services__content">
               <div class="services__icon">
                 <div class="services__box"></div>
                 <i class="ri-cpu-line"></i>
               </div>
-
               <h2 class="services__title">System Logic</h2>
-
-              <p class="services__description"></p>
+              <p class="services__description">
+                Writing reliable back-end logic and business rules.
+              </p>
             </div>
           </article>
 
           <article class="services__card">
             <div class="services__border"></div>
-
             <div class="services__content">
               <div class="services__icon">
                 <div class="services__box"></div>
                 <i class="ri-file-settings-line"></i>
               </div>
-
               <h2 class="services__title">Server Management</h2>
-
-              <p class="services__description"></p>
+              <p class="services__description">
+                Basic server setup, configuration, and maintenance.
+              </p>
             </div>
           </article>
         </div>
@@ -286,164 +330,186 @@
         </h2>
 
         <div class="projects__container container grid">
+          <!-- ============================================================
+               TEMPLATE PROJECT — salin seluruh blok <article> ini
+               lalu ganti bagian yang ditandai untuk tambah project baru
+               ============================================================
+
+               <article class="projects__card">
+                 <div class="projects__image">
+                   [1] GANTI src → screenshot project (taruh di img/)
+                   <img src="img/NAMA-GAMBAR.jpg" alt="nama project" class="projects__img" />
+                   [2] GANTI href → link demo / live preview project
+                   <a href="LINK-DEMO" target="_blank" class="projects__button button">
+                     <i class="ri-arrow-right-up-line"></i>
+                   </a>
+                 </div>
+                 <div class="projects__content">
+                   [3] GANTI → kategori project (contoh: Website / PHP / JS App)
+                   <h3 class="projects__subtitle">Kategori</h3>
+                   [4] GANTI → nama project
+                   <h2 class="projects__title">Nama Project</h2>
+                   [5] GANTI → deskripsi singkat 1-2 kalimat
+                   <p class="projects__description">Deskripsi project.</p>
+                 </div>
+                 <div class="projects__buttons">
+                   [6] GANTI href → link repo GitHub
+                   <a href="LINK-GITHUB" target="_blank" class="projects__link">
+                     <i class="ri-github-line"></i> GitHub
+                   </a>
+                   [7] GANTI href → link live demo (boleh sama dengan [2])
+                       Kalau tidak ada live demo, hapus blok <a> ini
+                   <a href="LINK-DEMO" target="_blank" class="projects__link">
+                     <i class="ri-external-link-line"></i> Live Demo
+                   </a>
+                 </div>
+               </article>
+
+               ============================================================ -->
+
+          <!-- PROJECT 1 -->
           <article class="projects__card">
             <div class="projects__image">
-              <img src="img/project-1.jpg" alt="image" class="projects__img" />
-
+              <img
+                src="img/project-1.jpg"
+                alt="Web Book Project"
+                class="projects__img"
+              />
               <a href="#" class="projects__button button">
                 <i class="ri-arrow-right-up-line"></i>
               </a>
             </div>
-
             <div class="projects__content">
               <h3 class="projects__subtitle">Website</h3>
-              <h2 class="projects__title">apa</h2>
-
-              <p class="projects__description"></p>
+              <h2 class="projects__title">Web Book</h2>
+              <p class="projects__description">
+                Digital book reader dengan navigasi multi-level menggunakan
+                HTML, CSS, dan JavaScript murni.
+              </p>
             </div>
-
             <div class="projects__buttons">
-              <a href="" target="_blank" class="projects__link">
-                <i class="ri-github-line"></i>View
+              <a
+                href="https://github.com/Mahesa101"
+                target="_blank"
+                class="projects__link"
+              >
+                <i class="ri-github-line"></i> GitHub
               </a>
-
-              <a href="" target="_blank" class="projects__link">
-                <i class="ri-dribbble-line"></i>view
+              <a href="#" target="_blank" class="projects__link">
+                <i class="ri-external-link-line"></i> Live Demo
               </a>
             </div>
           </article>
 
+          <!-- PROJECT 2 -->
           <article class="projects__card">
             <div class="projects__image">
-              <img src="img/project-2.jpg" alt="image" class="projects__img" />
-
+              <img
+                src="img/project-2.jpg"
+                alt="Dashboard UI"
+                class="projects__img"
+              />
               <a href="#" class="projects__button button">
                 <i class="ri-arrow-right-up-line"></i>
               </a>
             </div>
-
             <div class="projects__content">
-              <h3 class="projects__subtitle">i</h3>
-              <h2 class="projects__title"></h2>
-
-              <p class="projects__description"></p>
+              <h3 class="projects__subtitle">Dashboard</h3>
+              <h2 class="projects__title">Admin Dashboard UI</h2>
+              <p class="projects__description">
+                Dashboard dengan Alpine.js, Chart.js, dan Tailwind CSS dengan
+                pemisahan file yang clean.
+              </p>
             </div>
-
             <div class="projects__buttons">
               <a href="" target="_blank" class="projects__link">
-                <i class="ri-github-line"></i>View
+                <i class="ri-github-line"></i> GitHub
               </a>
-
               <a href="" target="_blank" class="projects__link">
-                <i class="ri-dribbble-line"></i>view
+                <i class="ri-external-link-line"></i> Live Demo
               </a>
             </div>
           </article>
 
+          <!-- PROJECT 3 -->
           <article class="projects__card">
             <div class="projects__image">
-              <img src="img/project-3.jpg" alt="image" class="projects__img" />
-
+              <img
+                src="img/project-3.jpg"
+                alt="Manga Plus Clone"
+                class="projects__img"
+              />
               <a href="#" class="projects__button button">
                 <i class="ri-arrow-right-up-line"></i>
               </a>
             </div>
-
             <div class="projects__content">
-              <h3 class="projects__subtitle"></h3>
-              <h2 class="projects__title"></h2>
-
-              <p class="projects__description"></p>
+              <h3 class="projects__subtitle">Website Clone</h3>
+              <h2 class="projects__title">Manga Plus Clone</h2>
+              <p class="projects__description">
+                Clone dari Manga Plus dengan Swiper.js dan refactoring ke
+                struktur file terpisah.
+              </p>
             </div>
-
             <div class="projects__buttons">
               <a href="" target="_blank" class="projects__link">
-                <i class="ri-github-line"></i>View
+                <i class="ri-github-line"></i> GitHub
               </a>
-
               <a href="" target="_blank" class="projects__link">
-                <i class="ri-dribbble-line"></i>view
+                <i class="ri-external-link-line"></i> Live Demo
               </a>
             </div>
           </article>
 
-          <article class="projects__card">
-            <div class="projects__image">
-              <img src="img/project-1.jpg" alt="image" class="projects__img" />
-
-              <a href="#" class="projects__button button">
-                <i class="ri-arrow-right-up-line"></i>
-              </a>
-            </div>
-
-            <div class="projects__content">
-              <h3 class="projects__subtitle">a</h3>
-              <h2 class="projects__title"></h2>
-
-              <p class="projects__description"></p>
-            </div>
-
-            <div class="projects__buttons">
-              <a href="" target="_blank" class="projects__link">
-                <i class="ri-github-line"></i>View
-              </a>
-
-              <a href="" target="_blank" class="projects__link">
-                <i class="ri-dribbble-line"></i>view
-              </a>
-            </div>
-          </article>
-
-          <article class="projects__card">
-            <div class="projects__image">
-              <img src="img/project-1.jpg" alt="image" class="projects__img" />
-
-              <a href="#" class="projects__button button">
-                <i class="ri-arrow-right-up-line"></i>
-              </a>
-            </div>
-
-            <div class="projects__content">
-              <h3 class="projects__subtitle">a</h3>
-              <h2 class="projects__title"></h2>
-
-              <p class="projects__description"></p>
-            </div>
-
-            <div class="projects__buttons">
-              <a href="" target="_blank" class="projects__link">
-                <i class="ri-github-line"></i>View
-              </a>
-
-              <a href="" target="_blank" class="projects__link">
-                <i class="ri-dribbble-line"></i>view
-              </a>
-            </div>
-          </article>
+          <!-- TAMBAH PROJECT BARU: salin template di atas dan paste di sini -->
         </div>
       </section>
 
-      <!--==================== certificate ====================-->
+      <!--==================== CERTIFICATE ====================-->
       <section class="certificate section" id="certificate">
         <h2 class="section__title-1">
           <span>Certificate.</span>
         </h2>
 
         <div class="certificate__container container grid">
+          <!-- ============================================================
+               TEMPLATE CERTIFICATE — salin blok <article> ini
+               lalu ganti bagian yang ditandai untuk tambah sertifikat baru
+               ============================================================
+
+               <article class="certificate__card">
+                 <div class="certificate__image">
+                   [1] GANTI src → foto/screenshot sertifikat (taruh di img/)
+                   <img src="img/NAMA-GAMBAR.jpg" alt="nama sertifikat" class="certificate__img" />
+                   Overlay hover (jangan diubah)
+                   <div class="certificate__overlay">
+                     [2] GANTI href → link sertifikat online (misal: link Dicoding/Coursera)
+                     <a href="LINK-SERTIFIKAT" target="_blank">
+                       <i class="ri-zoom-in-line"></i>
+                     </a>
+                   </div>
+                 </div>
+               </article>
+
+               ============================================================ -->
+
+          <!-- CERTIFICATE 1 -->
           <article class="certificate__card">
             <div class="certificate__image">
               <img
                 src="img/project-1.jpg"
-                alt="image"
+                alt="Certificate"
                 class="certificate__img"
               />
-
-              <a href="#" class="certificate__button button">
-                <i class="ri-arrow-up-line"></i>
-              </a>
-            </div>
+              <div class="certificate__overlay">
+                <a href="#" target="_blank">
+                  <i class="ri-zoom-in-line"></i>
+                </a>
+              </div>
             </div>
           </article>
+
+          <!-- TAMBAH SERTIFIKAT BARU: salin template di atas dan paste di sini -->
         </div>
       </section>
 
@@ -455,14 +521,16 @@
               <span>Contact Me.</span>
             </h2>
 
+            <!-- ============================================================
+                 GANTI: Teks deskripsi di bagian contact
+                 ============================================================ -->
             <p class="contact__description-1">
-              I will read all emails. Send me any message you want and I'll get
-              back to you.
+              I read all messages. Feel free to reach out for any opportunity or
+              question.
             </p>
-
             <p class="contact__description-2">
-              I nedd your <b>Name</b> and <b>Email Address</b>, but you won't
-              message you won't receive anything other than you resply
+              I need your <b>Name</b> and <b>Email Address</b> to get back to
+              you.
             </p>
 
             <div class="geometric-box"></div>
@@ -484,7 +552,6 @@
                   />
                   <label for="name" class="contact__label">First Name</label>
                 </div>
-
                 <div class="contact__box">
                   <input
                     type="email"
@@ -492,7 +559,7 @@
                     class="contact__input"
                     id="email"
                     required
-                    placeholder="Email address"
+                    placeholder="Email Address"
                   />
                   <label for="email" class="contact__label"
                     >Email Address</label
@@ -520,14 +587,13 @@
                   required
                   placeholder="Message"
                 ></textarea>
-
                 <label for="message" class="contact__label">Message</label>
               </div>
 
               <p class="contact__message" id="contact-message"></p>
 
               <button type="submit" class="contact__button button">
-                <i class="ri-send-plane-line"></i>Send Message
+                <i class="ri-send-plane-line"></i> Send Message
               </button>
             </form>
           </div>
@@ -535,32 +601,38 @@
           <div class="contact__social">
             <img
               src="img/curved-arrow.svg"
-              alt="image"
+              alt=""
               class="contact__social-arrow"
             />
-
             <div class="contact__social-data">
               <div>
                 <p class="contact__social-description-1">
-                  does not send emails
+                  Prefer social media?
                 </p>
-
                 <p class="contact__social-description-2">
-                  write me on my social networks
+                  Write me on my socials
                 </p>
               </div>
-
               <div class="contact__social-links">
+                <!-- ============================================================
+                     GANTI: Link sosial media di bagian contact
+                     ============================================================ -->
                 <a href="" target="_blank" class="contact__social-link">
                   <i class="ri-instagram-line"></i>
                 </a>
-
-                <a href="" target="_blank" class="contact__social-link">
-                  <i class="ri-tiktok-line"></i>
-                </a>
-
-                <a href="" target="_blank" class="contact__social-link">
+                <a
+                  href="https://www.linkedin.com/in/mahesaagsa/"
+                  target="_blank"
+                  class="contact__social-link"
+                >
                   <i class="ri-linkedin-box-line"></i>
+                </a>
+                <a
+                  href="https://github.com/Mahesa101"
+                  target="_blank"
+                  class="contact__social-link"
+                >
+                  <i class="ri-github-line"></i>
                 </a>
               </div>
             </div>
@@ -573,25 +645,54 @@
     <footer class="footer">
       <div class="footer__container container grid">
         <ul class="footer__links">
-          <li>
-            <a href="#home" class="footer__link">Home</a>
-          </li>
-
-          <li>
-            <a href="#about" class="footer__link">About</a>
-          </li>
-
-          <li>
-            <a href="#projects" class="footer__link">Projects</a>
-          </li>
+          <li><a href="#home" class="footer__link">Home</a></li>
+          <li><a href="#about" class="footer__link">About</a></li>
+          <li><a href="#projects" class="footer__link">Projects</a></li>
         </ul>
 
+        <!-- ============================================================
+             GANTI: Nama di footer copyright
+             ============================================================ -->
         <span class="footer__copy">
           &#169; All Rights Reserved By
-          <a href="#">Bedimcode.</a>
+          <a href="#">Three Mahesa Agsa Ramadhan.</a>
         </span>
       </div>
     </footer>
+
+    <!-- ==================== CERTIFICATE MODAL ==================== -->
+    <div class="cert-modal" id="cert-modal">
+      <button
+        class="cert-modal__close"
+        id="cert-modal-close"
+        aria-label="Close"
+      >
+        <i class="ri-close-line"></i>
+      </button>
+      <button
+        class="cert-modal__nav cert-modal__nav--prev"
+        id="cert-modal-prev"
+        aria-label="Previous"
+      >
+        <i class="ri-arrow-left-s-line"></i>
+      </button>
+      <div class="cert-modal__wrapper">
+        <img
+          src=""
+          alt="Certificate"
+          class="cert-modal__img"
+          id="cert-modal-img"
+        />
+      </div>
+      <button
+        class="cert-modal__nav cert-modal__nav--next"
+        id="cert-modal-next"
+        aria-label="Next"
+      >
+        <i class="ri-arrow-right-s-line"></i>
+      </button>
+    </div>
+    <div class="cert-modal__overlay" id="cert-modal-overlay"></div>
 
     <!--========== SCROLL UP ==========-->
     <a href="#" class="scrollup" id="scroll-up">
