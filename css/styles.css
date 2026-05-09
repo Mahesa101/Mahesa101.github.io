@@ -756,7 +756,7 @@ body.dark-theme {
   background-color: transparent;
   border: 3px solid var(--black-color);
   color: var(--black-color);
-  padding: 0.3rem 1.25rem;
+  padding: 0.5rem 1.25rem;
   font-weight: var(--font-medium);
   font-size: var(--normal-font-size);
   transition:
