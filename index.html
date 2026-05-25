@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 
     <!--=============== FAVICON ===============-->
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
@@ -22,9 +23,15 @@
     <!-- ==================== LOADER ==================== -->
     <div class="loader" id="loader">
       <div class="loader__box">
-        <span class="loader__letter">Mahesa</span>
+        <div class="loader__cube">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
         <p class="loader__typing" id="loader-typing"></p>
-        <div class="loader__bar"></div>
       </div>
     </div>
     <!--==================== HEADER ====================-->
@@ -84,7 +91,7 @@
           <!-- ============================================================
                GANTI: Nama lengkap kamu
                ============================================================ -->
-          <h1 class="home__name">Three Mahesa Agsa Ramadhan</h1>
+          <h1 class="home__name">Three Mahesa Agsa<br> Ramadhan</h1>
 
           <div class="home__perfil">
             <div class="home__image">
@@ -204,6 +211,17 @@
               </div>
 
               <div class="button__skill">
+                <img src="/img/javascript.svg" alt="javascript logo" />
+                <span>Javascript</span>
+              </div>
+
+              <div class="button__skill">
+                <img src="/img/javascript.svg" alt="javascript logo" />
+                <span>Javascript</span>
+              </div>
+
+              
+              <div class="button__skill">
                 <img src="/img/PHP.svg" alt="php logo" />
                 <span>PHP</span>
               </div>
@@ -224,6 +242,7 @@
               </div>
             </div>
 
+            
             <div class="about__buttons">
               <a href="#contact" class="button">
                 <i class="ri-send-plane-line"></i> Contact Me
@@ -239,32 +258,137 @@
         </div>
       </section>
 
+
+  <!--==================== Github ====================-->
+
+
+       <section class="github section">
+        <h2 class="section__title-2">
+          <span>GitHub Activity.</span>
+        </h2>
+
+        <div class="github__container container">
+          <div class="github__stats grid">
+            <div class="github__card">
+              <i class="ri-award-line"></i>
+              <h3 class="github__number" id="stat-certs">0</h3>
+              <p class="github__label">Certificates</p>
+            </div>
+            <div class="github__card">
+              <i class="ri-stack-line"></i>
+              <h3 class="github__number" id="stat-projects">0</h3>
+              <p class="github__label">Projects</p>
+            </div>
+            <div class="github__card">
+              <i class="ri-calendar-line"></i>
+              <h3 class="github__number" id="stat-exp">1</h3>
+              <p class="github__label">Years Learning</p>
+            </div>
+          </div>
+
+          <div class="github__recent">
+            <div class="github__graph">
+              <h3 class="github__recent-title">
+                <i class="ri-calendar-check-line"></i> Contribution Graph
+              </h3>
+              <div class="github__graph-wrapper">
+                <img
+                  src="https://ghchart.rshah.org/e85d04/Mahesa101"
+                  alt="Mahesa GitHub Contribution Chart"
+                  class="github__graph-img"
+                  id="github-graph-img"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!--==================== SERVICES ====================-->
-      <section class="services section">
+       <section class="services section">
         <h2 class="section__title-2">
           <span>Services.</span>
         </h2>
 
-        <div class="services__container container grid">
-          <!-- ============================================================
-               TEMPLATE SERVICE — salin blok ini untuk tambah service baru
-               Ganti: icon (cari di remixicon.com), judul, dan deskripsi
-               ============================================================
+        <div class="gotl__grid">
+          <a href="#projects" class="gotl__card">
+            <div class="gotl__spine">
+              <span class="gotl__spine-num">[01]</span>
+              <h3 class="gotl__spine-title">API Development</h3>
+              <div class="gotl__spine-icon">⚙️</div>
+            </div>
+            <div class="gotl__content">
+              <div class="gotl__meta">
+                <div class="gotl__icon-box">⚙️</div>
+                <h3 class="gotl__title">API Development</h3>
+                <p class="gotl__desc">
+                  Building structured and documented REST APIs with clean
+                  architecture.
+                </p>
+              </div>
+              <span class="gotl__badge">// BACK-END</span>
+            </div>
+          </a>
 
-               <article class="services__card">
-                 <div class="services__border"></div>
-                 <div class="services__content">
-                   <div class="services__icon">
-                     <div class="services__box"></div>
-                     <i class="ri-NAMA-ICON-line"></i>
-                   </div>
-                   <h2 class="services__title">Nama Service</h2>
-                   <p class="services__description">Deskripsi singkat service ini.</p>
-                 </div>
-               </article>
+          <a href="#projects" class="gotl__card">
+            <div class="gotl__spine">
+              <span class="gotl__spine-num">[02]</span>
+              <h3 class="gotl__spine-title">Database</h3>
+              <div class="gotl__spine-icon">🗄️</div>
+            </div>
+            <div class="gotl__content">
+              <div class="gotl__meta">
+                <div class="gotl__icon-box">🗄️</div>
+                <h3 class="gotl__title">Database Architecture</h3>
+                <p class="gotl__desc">
+                  Designing clean and efficient database structures for scalable
+                  systems.
+                </p>
+              </div>
+              <span class="gotl__badge">// DATABASE</span>
+            </div>
+          </a>
 
-               ============================================================ -->
+          <a href="#projects" class="gotl__card">
+            <div class="gotl__spine">
+              <span class="gotl__spine-num">[03]</span>
+              <h3 class="gotl__spine-title">System Logic</h3>
+              <div class="gotl__spine-icon">🧠</div>
+            </div>
+            <div class="gotl__content">
+              <div class="gotl__meta">
+                <div class="gotl__icon-box">🧠</div>
+                <h3 class="gotl__title">System Logic</h3>
+                <p class="gotl__desc">
+                  Writing reliable back-end logic and business rules with
+                  structured code.
+                </p>
+              </div>
+              <span class="gotl__badge">// LOGIC</span>
+            </div>
+          </a>
 
+          <a href="#projects" class="gotl__card">
+            <div class="gotl__spine">
+              <span class="gotl__spine-num">[04]</span>
+              <h3 class="gotl__spine-title">Server Mgmt</h3>
+              <div class="gotl__spine-icon">🖥️</div>
+            </div>
+            <div class="gotl__content">
+              <div class="gotl__meta">
+                <div class="gotl__icon-box">🖥️</div>
+                <h3 class="gotl__title">Server Management</h3>
+                <p class="gotl__desc">
+                  Basic server setup, configuration, and maintenance for
+                  production environments.
+                </p>
+              </div>
+              <span class="gotl__badge">// DEVOPS</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="services__container--mobile services__container container grid">
           <article class="services__card">
             <div class="services__border"></div>
             <div class="services__content">
@@ -273,12 +397,9 @@
                 <i class="ri-settings-3-line"></i>
               </div>
               <h2 class="services__title">API Development</h2>
-              <p class="services__description">
-                Building structured and documented REST APIs.
-              </p>
+              <p class="services__description">Building structured and documented REST APIs.</p>
             </div>
           </article>
-
           <article class="services__card">
             <div class="services__border"></div>
             <div class="services__content">
@@ -287,12 +408,9 @@
                 <i class="ri-server-line"></i>
               </div>
               <h2 class="services__title">Database Architecture</h2>
-              <p class="services__description">
-                Designing clean and efficient database structures.
-              </p>
+              <p class="services__description">Designing clean and efficient database structures.</p>
             </div>
           </article>
-
           <article class="services__card">
             <div class="services__border"></div>
             <div class="services__content">
@@ -301,12 +419,9 @@
                 <i class="ri-cpu-line"></i>
               </div>
               <h2 class="services__title">System Logic</h2>
-              <p class="services__description">
-                Writing reliable back-end logic and business rules.
-              </p>
+              <p class="services__description">Writing reliable back-end logic and business rules.</p>
             </div>
           </article>
-
           <article class="services__card">
             <div class="services__border"></div>
             <div class="services__content">
@@ -315,9 +430,7 @@
                 <i class="ri-file-settings-line"></i>
               </div>
               <h2 class="services__title">Server Management</h2>
-              <p class="services__description">
-                Basic server setup, configuration, and maintenance.
-              </p>
+              <p class="services__description">Basic server setup, configuration, and maintenance.</p>
             </div>
           </article>
         </div>
@@ -329,172 +442,256 @@
           <span>Projects.</span>
         </h2>
 
-        <div class="projects__container container grid">
-          <!-- ============================================================
-               TEMPLATE PROJECT — salin seluruh blok <article> ini
-               lalu ganti bagian yang ditandai untuk tambah project baru
-               ============================================================
+        <div class="tcg__container container">
+          <div class="tcg__card" onclick="openProjectModal(
+            'Web Book', 'WEB', 'Website',
+            'Digital book reader dengan navigasi multi-level menggunakan HTML, CSS, dan JavaScript murni. Fitur termasuk bookmark, pencarian, dan mode baca malam.',
+            'img/project-1.jpg',
+            ['HTML', 'CSS', 'JS'],
+            'https://github.com/Mahesa101', '#', '★★★'
+          )">
+            <div class="tcg__shine"></div>
+            <div class="tcg__frame">
+              <div class="tcg__header">
+                <span class="tcg__name">Web Book</span>
+                <span class="tcg__type">WEB</span>
+              </div>
+              <div class="tcg__image-wrap">
+                <img src="img/project-1.jpg" alt="Web Book" class="tcg__img" />
+                <div class="tcg__image-overlay"></div>
+              </div>
+              <div class="tcg__divider">
+                <span class="tcg__category">// WEBSITE</span>
+              </div>
+              <div class="tcg__body">
+                <p class="tcg__desc">Digital book reader dengan navigasi multi-level menggunakan HTML, CSS, dan JavaScript murni.</p>
+              </div>
+              <div class="tcg__footer">
+                <div class="tcg__stats">
+                  <span class="tcg__stat"><i class="ri-code-line"></i> JS</span>
+                  <span class="tcg__stat"><i class="ri-palette-line"></i> CSS</span>
+                  <span class="tcg__stat"><i class="ri-html5-line"></i> HTML</span>
+                </div>
+                <span class="tcg__rarity">★★★</span>
+              </div>
+            </div>
+          </div>
 
-               <article class="projects__card">
-                 <div class="projects__image">
-                   [1] GANTI src → screenshot project (taruh di img/)
-                   <img src="img/NAMA-GAMBAR.jpg" alt="nama project" class="projects__img" />
-                   [2] GANTI href → link demo / live preview project
-                   <a href="LINK-DEMO" target="_blank" class="projects__button button">
-                     <i class="ri-arrow-right-up-line"></i>
-                   </a>
-                 </div>
-                 <div class="projects__content">
-                   [3] GANTI → kategori project (contoh: Website / PHP / JS App)
-                   <h3 class="projects__subtitle">Kategori</h3>
-                   [4] GANTI → nama project
-                   <h2 class="projects__title">Nama Project</h2>
-                   [5] GANTI → deskripsi singkat 1-2 kalimat
-                   <p class="projects__description">Deskripsi project.</p>
-                 </div>
-                 <div class="projects__buttons">
-                   [6] GANTI href → link repo GitHub
-                   <a href="LINK-GITHUB" target="_blank" class="projects__link">
-                     <i class="ri-github-line"></i> GitHub
-                   </a>
-                   [7] GANTI href → link live demo (boleh sama dengan [2])
-                       Kalau tidak ada live demo, hapus blok <a> ini
-                   <a href="LINK-DEMO" target="_blank" class="projects__link">
-                     <i class="ri-external-link-line"></i> Live Demo
-                   </a>
-                 </div>
-               </article>
+          <div class="tcg__card" onclick="openProjectModal(
+            'Web Book', 'WEB', 'Website',
+            'Digital book reader dengan navigasi multi-level menggunakan HTML, CSS, dan JavaScript murni. Fitur termasuk bookmark, pencarian, dan mode baca malam.',
+            'img/project-1.jpg',
+            ['HTML', 'CSS', 'JS'],
+            'https://github.com/Mahesa101', '#', '★★★'
+          )">
+            <div class="tcg__shine"></div>
+            <div class="tcg__frame">
+              <div class="tcg__header">
+                <span class="tcg__name">Web Book</span>
+                <span class="tcg__type">WEB</span>
+              </div>
+              <div class="tcg__image-wrap">
+                <img src="img/project-1.jpg" alt="Web Book" class="tcg__img" />
+                <div class="tcg__image-overlay"></div>
+              </div>
+              <div class="tcg__divider">
+                <span class="tcg__category">// WEBSITE</span>
+              </div>
+              <div class="tcg__body">
+                <p class="tcg__desc">Digital book reader dengan navigasi multi-level menggunakan HTML, CSS, dan JavaScript murni.</p>
+              </div>
+              <div class="tcg__footer">
+                <div class="tcg__stats">
+                  <span class="tcg__stat"><i class="ri-code-line"></i> JS</span>
+                  <span class="tcg__stat"><i class="ri-palette-line"></i> CSS</span>
+                  <span class="tcg__stat"><i class="ri-html5-line"></i> HTML</span>
+                </div>
+                <span class="tcg__rarity">★★★</span>
+              </div>
+            </div>
+          </div>
 
-               ============================================================ -->
+          <div class="tcg__card" onclick="openProjectModal(
+            'Web Book', 'WEB', 'Website',
+            'Digital book reader dengan navigasi multi-level menggunakan HTML, CSS, dan JavaScript murni. Fitur termasuk bookmark, pencarian, dan mode baca malam.',
+            'img/project-1.jpg',
+            ['HTML', 'CSS', 'JS'],
+            'https://github.com/Mahesa101', '#', '★★★'
+          )">
+            <div class="tcg__shine"></div>
+            <div class="tcg__frame">
+              <div class="tcg__header">
+                <span class="tcg__name">Web Book</span>
+                <span class="tcg__type">WEB</span>
+              </div>
+              <div class="tcg__image-wrap">
+                <img src="img/project-1.jpg" alt="Web Book" class="tcg__img" />
+                <div class="tcg__image-overlay"></div>
+              </div>
+              <div class="tcg__divider">
+                <span class="tcg__category">// WEBSITE</span>
+              </div>
+              <div class="tcg__body">
+                <p class="tcg__desc">Digital book reader dengan navigasi multi-level menggunakan HTML, CSS, dan JavaScript murni.</p>
+              </div>
+              <div class="tcg__footer">
+                <div class="tcg__stats">
+                  <span class="tcg__stat"><i class="ri-code-line"></i> JS</span>
+                  <span class="tcg__stat"><i class="ri-palette-line"></i> CSS</span>
+                  <span class="tcg__stat"><i class="ri-html5-line"></i> HTML</span>
+                </div>
+                <span class="tcg__rarity">★★★</span>
+              </div>
+            </div>
+          </div>
 
-          <!-- PROJECT 1 -->
-          <article class="projects__card">
-            <div class="projects__image">
-              <img
-                src="img/project-1.jpg"
-                alt="Web Book Project"
-                class="projects__img"
-              />
-              <a href="#" class="projects__button button">
-                <i class="ri-arrow-right-up-line"></i>
-              </a>
+          <div class="tcg__card" onclick="openProjectModal(
+            'Admin Dashboard', 'UI', 'Dashboard',
+            'Dashboard admin lengkap dengan Alpine.js, Chart.js, dan Tailwind CSS. Mendukung dark mode, grafik data real-time, dan manajemen pengguna.',
+            'img/project-2.jpg',
+            ['JS', 'Alpine', 'Chart.js'],
+            '', '', '★★★★'
+          )">
+            <div class="tcg__shine"></div>
+            <div class="tcg__frame">
+              <div class="tcg__header">
+                <span class="tcg__name">Admin Dashboard</span>
+                <span class="tcg__type">UI</span>
+              </div>
+              <div class="tcg__image-wrap">
+                <img src="img/project-2.jpg" alt="Dashboard UI" class="tcg__img" />
+                <div class="tcg__image-overlay"></div>
+              </div>
+              <div class="tcg__divider">
+                <span class="tcg__category">// DASHBOARD</span>
+              </div>
+              <div class="tcg__body">
+                <p class="tcg__desc">Dashboard dengan Alpine.js, Chart.js, dan Tailwind CSS dengan pemisahan file yang clean.</p>
+              </div>
+              <div class="tcg__footer">
+                <div class="tcg__stats">
+                  <span class="tcg__stat"><i class="ri-code-line"></i> JS</span>
+                  <span class="tcg__stat"><i class="ri-database-line"></i> Data</span>
+                  <span class="tcg__stat"><i class="ri-layout-line"></i> UI</span>
+                </div>
+                <span class="tcg__rarity">★★★★</span>
+              </div>
             </div>
-            <div class="projects__content">
-              <h3 class="projects__subtitle">Website</h3>
-              <h2 class="projects__title">Web Book</h2>
-              <p class="projects__description">
-                Digital book reader dengan navigasi multi-level menggunakan
-                HTML, CSS, dan JavaScript murni.
-              </p>
-            </div>
-            <div class="projects__buttons">
-              <a
-                href="https://github.com/Mahesa101"
-                target="_blank"
-                class="projects__link"
-              >
-                <i class="ri-github-line"></i> GitHub
-              </a>
-              <a href="#" target="_blank" class="projects__link">
-                <i class="ri-external-link-line"></i> Live Demo
-              </a>
-            </div>
-          </article>
+          </div>
 
-          <!-- PROJECT 2 -->
-          <article class="projects__card">
-            <div class="projects__image">
-              <img
-                src="img/project-2.jpg"
-                alt="Dashboard UI"
-                class="projects__img"
-              />
-              <a href="#" class="projects__button button">
-                <i class="ri-arrow-right-up-line"></i>
-              </a>
+          <div class="tcg__card" onclick="openProjectModal(
+            'Admin Dashboard', 'UI', 'Dashboard',
+            'Dashboard admin lengkap dengan Alpine.js, Chart.js, dan Tailwind CSS. Mendukung dark mode, grafik data real-time, dan manajemen pengguna.',
+            'img/project-2.jpg',
+            ['JS', 'Alpine', 'Chart.js'],
+            '', '', '★★★★'
+          )">
+            <div class="tcg__shine"></div>
+            <div class="tcg__frame">
+              <div class="tcg__header">
+                <span class="tcg__name">Admin Dashboard</span>
+                <span class="tcg__type">UI</span>
+              </div>
+              <div class="tcg__image-wrap">
+                <img src="img/project-2.jpg" alt="Dashboard UI" class="tcg__img" />
+                <div class="tcg__image-overlay"></div>
+              </div>
+              <div class="tcg__divider">
+                <span class="tcg__category">// DASHBOARD</span>
+              </div>
+              <div class="tcg__body">
+                <p class="tcg__desc">Dashboard dengan Alpine.js, Chart.js, dan Tailwind CSS dengan pemisahan file yang clean.</p>
+              </div>
+              <div class="tcg__footer">
+                <div class="tcg__stats">
+                  <span class="tcg__stat"><i class="ri-code-line"></i> JS</span>
+                  <span class="tcg__stat"><i class="ri-database-line"></i> Data</span>
+                  <span class="tcg__stat"><i class="ri-layout-line"></i> UI</span>
+                </div>
+                <span class="tcg__rarity">★★★★</span>
+              </div>
             </div>
-            <div class="projects__content">
-              <h3 class="projects__subtitle">Dashboard</h3>
-              <h2 class="projects__title">Admin Dashboard UI</h2>
-              <p class="projects__description">
-                Dashboard dengan Alpine.js, Chart.js, dan Tailwind CSS dengan
-                pemisahan file yang clean.
-              </p>
-            </div>
-            <div class="projects__buttons">
-              <a href="" target="_blank" class="projects__link">
-                <i class="ri-github-line"></i> GitHub
-              </a>
-              <a href="" target="_blank" class="projects__link">
-                <i class="ri-external-link-line"></i> Live Demo
-              </a>
-            </div>
-          </article>
+          </div>
 
-          <!-- PROJECT 3 -->
-          <article class="projects__card">
-            <div class="projects__image">
-              <img
-                src="img/project-3.jpg"
-                alt="Manga Plus Clone"
-                class="projects__img"
-              />
-              <a href="#" class="projects__button button">
-                <i class="ri-arrow-right-up-line"></i>
-              </a>
-            </div>
-            <div class="projects__content">
-              <h3 class="projects__subtitle">Website Clone</h3>
-              <h2 class="projects__title">Manga Plus Clone</h2>
-              <p class="projects__description">
-                Clone dari Manga Plus dengan Swiper.js dan refactoring ke
-                struktur file terpisah.
-              </p>
-            </div>
-            <div class="projects__buttons">
-              <a href="" target="_blank" class="projects__link">
-                <i class="ri-github-line"></i> GitHub
-              </a>
-              <a href="" target="_blank" class="projects__link">
-                <i class="ri-external-link-line"></i> Live Demo
-              </a>
-            </div>
-          </article>
 
-          <!-- TAMBAH PROJECT BARU: salin template di atas dan paste di sini -->
+          <div class="tcg__card" onclick="openProjectModal(
+            'Admin Dashboard', 'UI', 'Dashboard',
+            'Dashboard admin lengkap dengan Alpine.js, Chart.js, dan Tailwind CSS. Mendukung dark mode, grafik data real-time, dan manajemen pengguna.',
+            'img/project-2.jpg',
+            ['JS', 'Alpine', 'Chart.js'],
+            '', '', '★★★★'
+          )">
+            <div class="tcg__shine"></div>
+            <div class="tcg__frame">
+              <div class="tcg__header">
+                <span class="tcg__name">Admin Dashboard</span>
+                <span class="tcg__type">UI</span>
+              </div>
+              <div class="tcg__image-wrap">
+                <img src="img/project-2.jpg" alt="Dashboard UI" class="tcg__img" />
+                <div class="tcg__image-overlay"></div>
+              </div>
+              <div class="tcg__divider">
+                <span class="tcg__category">// DASHBOARD</span>
+              </div>
+              <div class="tcg__body">
+                <p class="tcg__desc">Dashboard dengan Alpine.js, Chart.js, dan Tailwind CSS dengan pemisahan file yang clean.</p>
+              </div>
+              <div class="tcg__footer">
+                <div class="tcg__stats">
+                  <span class="tcg__stat"><i class="ri-code-line"></i> JS</span>
+                  <span class="tcg__stat"><i class="ri-database-line"></i> Data</span>
+                  <span class="tcg__stat"><i class="ri-layout-line"></i> UI</span>
+                </div>
+                <span class="tcg__rarity">★★★★</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tcg__card" onclick="openProjectModal(
+            'Manga Plus Clone', 'WEB', 'Clone',
+            'Clone dari Manga Plus dengan Swiper.js dan refactoring ke struktur file terpisah. Mendukung slider chapter, lazy load gambar, dan navigasi halaman.',
+            'img/project-3.jpg',
+            ['JS', 'Swiper.js', 'CSS'],
+            '', '', '★★★'
+          )">
+            <div class="tcg__shine"></div>
+            <div class="tcg__frame">
+              <div class="tcg__header">
+                <span class="tcg__name">Manga Plus Clone</span>
+                <span class="tcg__type">WEB</span>
+              </div>
+              <div class="tcg__image-wrap">
+                <img src="img/project-3.jpg" alt="Manga Plus" class="tcg__img" />
+                <div class="tcg__image-overlay"></div>
+              </div>
+              <div class="tcg__divider">
+                <span class="tcg__category">// CLONE</span>
+              </div>
+              <div class="tcg__body">
+                <p class="tcg__desc">Clone dari Manga Plus dengan Swiper.js dan refactoring ke struktur file terpisah.</p>
+              </div>
+              <div class="tcg__footer">
+                <div class="tcg__stats">
+                  <span class="tcg__stat"><i class="ri-code-line"></i> JS</span>
+                  <span class="tcg__stat"><i class="ri-image-line"></i> UI</span>
+                  <span class="tcg__stat"><i class="ri-settings-line"></i> API</span>
+                </div>
+                <span class="tcg__rarity">★★★</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       <!--==================== CERTIFICATE ====================-->
-      <section class="certificate section" id="certificate">
+       <section class="certificate section" id="certificate">
         <h2 class="section__title-1">
           <span>Certificate.</span>
         </h2>
 
         <div class="certificate__container container grid">
-          <!-- ============================================================
-               TEMPLATE CERTIFICATE — salin blok <article> ini
-               lalu ganti bagian yang ditandai untuk tambah sertifikat baru
-               ============================================================
-
-               <article class="certificate__card">
-                 <div class="certificate__image">
-                   [1] GANTI src → foto/screenshot sertifikat (taruh di img/)
-                   <img src="img/NAMA-GAMBAR.jpg" alt="nama sertifikat" class="certificate__img" />
-                   Overlay hover (jangan diubah)
-                   <div class="certificate__overlay">
-                     [2] GANTI href → link sertifikat online (misal: link Dicoding/Coursera)
-                     <a href="LINK-SERTIFIKAT" target="_blank">
-                       <i class="ri-zoom-in-line"></i>
-                     </a>
-                   </div>
-                 </div>
-               </article>
-
-               ============================================================ -->
-
-          <!-- CERTIFICATE 1 -->
-          <article class="certificate__card">
+          <article class="certificate__card" onclick="openCert3DModal('Certificate', 'img/project-1.jpg', '#', 'Sertifikat ini diperoleh setelah menyelesaikan kursus terkait.')">
             <div class="certificate__image">
               <img
                 src="img/project-1.jpg"
@@ -502,14 +699,89 @@
                 class="certificate__img"
               />
               <div class="certificate__overlay">
-                <a href="#" target="_blank">
-                  <i class="ri-zoom-in-line"></i>
-                </a>
+                <i class="ri-zoom-in-line"></i>
               </div>
             </div>
           </article>
 
-          <!-- TAMBAH SERTIFIKAT BARU: salin template di atas dan paste di sini -->
+           <article class="certificate__card" onclick="openCert3DModal('Certificate', 'img/project-1.jpg', '#', 'Sertifikat ini diperoleh setelah menyelesaikan kursus terkait.')">
+            <div class="certificate__image">
+              <img
+                src="img/project-1.jpg"
+                alt="Certificate"
+                class="certificate__img"
+              />
+              <div class="certificate__overlay">
+                <i class="ri-zoom-in-line"></i>
+              </div>
+            </div>
+          </article>
+
+          <article class="certificate__card" onclick="openCert3DModal('Certificate', 'img/project-1.jpg', '#', 'Sertifikat ini diperoleh setelah menyelesaikan kursus terkait.')">
+            <div class="certificate__image">
+              <img
+                src="img/project-1.jpg"
+                alt="Certificate"
+                class="certificate__img"
+              />
+              <div class="certificate__overlay">
+                <i class="ri-zoom-in-line"></i>
+              </div>
+            </div>
+          </article>
+
+          <article class="certificate__card" onclick="openCert3DModal('Certificate', 'img/project-1.jpg', '#', 'Sertifikat ini diperoleh setelah menyelesaikan kursus terkait.')">
+            <div class="certificate__image">
+              <img
+                src="img/project-1.jpg"
+                alt="Certificate"
+                class="certificate__img"
+              />
+              <div class="certificate__overlay">
+                <i class="ri-zoom-in-line"></i>
+              </div>
+            </div>
+          </article>
+
+          <article class="certificate__card" onclick="openCert3DModal('Certificate', 'img/project-1.jpg', '#', 'Sertifikat ini diperoleh setelah menyelesaikan kursus terkait.')">
+            <div class="certificate__image">
+              <img
+                src="img/project-1.jpg"
+                alt="Certificate"
+                class="certificate__img"
+              />
+              <div class="certificate__overlay">
+                <i class="ri-zoom-in-line"></i>
+              </div>
+            </div>
+          </article>
+
+          <article class="certificate__card" onclick="openCert3DModal('Certificate', 'img/project-1.jpg', '#', 'Sertifikat ini diperoleh setelah menyelesaikan kursus terkait.')">
+            <div class="certificate__image">
+              <img
+                src="img/project-1.jpg"
+                alt="Certificate"
+                class="certificate__img"
+              />
+              <div class="certificate__overlay">
+                <i class="ri-zoom-in-line"></i>
+              </div>
+            </div>
+          </article>
+
+          <article class="certificate__card" onclick="openCert3DModal('Certificate', 'img/project-1.jpg', '#', 'Sertifikat ini diperoleh setelah menyelesaikan kursus terkait.')">
+            <div class="certificate__image">
+              <img
+                src="img/project-1.jpg"
+                alt="Certificate"
+                class="certificate__img"
+              />
+              <div class="certificate__overlay">
+                <i class="ri-zoom-in-line"></i>
+              </div>
+            </div>
+          </article>
+          
         </div>
       </section>
 
@@ -660,39 +932,93 @@
       </div>
     </footer>
 
-    <!-- ==================== CERTIFICATE MODAL ==================== -->
-    <div class="cert-modal" id="cert-modal">
-      <button
-        class="cert-modal__close"
-        id="cert-modal-close"
-        aria-label="Close"
-      >
+    <!-- ==================== MODAL ==================== -->
+   <div class="cert-modal" id="cert-modal">
+      <button class="cert-modal__close" id="cert-modal-close" aria-label="Close">
         <i class="ri-close-line"></i>
       </button>
-      <button
-        class="cert-modal__nav cert-modal__nav--prev"
-        id="cert-modal-prev"
-        aria-label="Previous"
-      >
+      <button class="cert-modal__nav cert-modal__nav--prev" id="cert-modal-prev" aria-label="Previous">
         <i class="ri-arrow-left-s-line"></i>
       </button>
       <div class="cert-modal__wrapper">
-        <img
-          src=""
-          alt="Certificate"
-          class="cert-modal__img"
-          id="cert-modal-img"
-        />
+        <img src="" alt="Certificate" class="cert-modal__img" id="cert-modal-img" />
       </div>
-      <button
-        class="cert-modal__nav cert-modal__nav--next"
-        id="cert-modal-next"
-        aria-label="Next"
-      >
+      <button class="cert-modal__nav cert-modal__nav--next" id="cert-modal-next" aria-label="Next">
         <i class="ri-arrow-right-s-line"></i>
       </button>
     </div>
     <div class="cert-modal__overlay" id="cert-modal-overlay"></div>
+
+    <div id="projectPortal" class="project-portal">
+      <button onclick="closeProjectModal()" class="project-portal__close" aria-label="Close">
+        &times;
+      </button>
+      <div class="project-portal__arena">
+        <div id="project3DCard" class="tcg__card tcg__card--modal">
+          <div class="tcg__shine"></div>
+          <div class="tcg__frame">
+            <div class="tcg__header">
+              <span class="tcg__name" id="modal3DName"></span>
+              <span class="tcg__type" id="modal3DType"></span>
+            </div>
+            <div class="tcg__image-wrap">
+              <img src="" alt="" class="tcg__img" id="modal3DImg" />
+              <div class="tcg__image-overlay"></div>
+            </div>
+            <div class="tcg__divider">
+              <span class="tcg__category" id="modal3DCategory"></span>
+            </div>
+            <div class="tcg__body">
+              <p class="tcg__desc" id="modal3DDesc"></p>
+            </div>
+            <div class="tcg__footer">
+              <div class="tcg__stats" id="modal3DStats"></div>
+              <span class="tcg__rarity" id="modal3DRarity"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="project-portal__panel">
+        <div>
+          <span class="gotl__badge" id="projectPanelCategory"></span>
+          <h2 id="projectPanelTitle" class="project-portal__title"></h2>
+          <div class="project-portal__line"></div>
+        </div>
+        <p id="projectPanelDesc" class="project-portal__desc"></p>
+        <div class="project-portal__tech" id="projectPanelTech"></div>
+        <div class="project-portal__buttons">
+          <a id="projectBtnGithub" href="#" target="_blank" class="button">
+            <i class="ri-github-line"></i> GitHub
+          </a>
+          <a id="projectBtnDemo" href="#" target="_blank" class="button__ghost">
+            <i class="ri-external-link-line"></i> Live Demo
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="projectOverlay" class="project-overlay" onclick="closeProjectModal()"></div>
+
+    <div id="cert3DPortal" class="cert-3d-portal">
+      <button onclick="closeCert3DModal()" class="cert-3d-portal__close">&times;</button>
+      <div class="cert-3d-portal__arena">
+        <div id="cert3DCard" class="cert-3d-card">
+          <img src="" alt="" class="cert-3d-img" id="cert3DImg" />
+        </div>
+      </div>
+      <div class="cert-3d-panel">
+        <div>
+          <span class="gotl__badge" id="cert3DBadge">// CERTIFICATE</span>
+          <h2 class="cert-3d-panel__title" id="cert3DTitle">Certificate</h2>
+          <div class="cert-3d-panel__line"></div>
+        </div>
+        <p class="cert-3d-panel__desc" id="cert3DDesc">Click the image to view full certificate.</p>
+        <a id="cert3DLink" href="#" target="_blank" class="button">
+          <i class="ri-external-link-line"></i> View Certificate
+        </a>
+      </div>
+    </div>
+    <div id="cert3DOverlay" class="cert-3d-overlay" onclick="closeCert3DModal()"></div>
+
 
     <!--========== SCROLL UP ==========-->
     <a href="#" class="scrollup" id="scroll-up">

@@ -150,81 +150,8 @@ sr.reveal(
   `.home__name, .home__info, .about__container, .section__title-1, .about__info, .contact__social, .contact__data`,
   { origin: "left" },
 );
-sr.reveal(`.services__card, .projects__card, .certificate__card`, {
+sr.reveal(`.services__card, .projects__card`, {
   interval: 100,
-});
-
-/*=============== CERTIFICATE MODAL ===============*/
-const certModal = document.getElementById("cert-modal");
-const certOverlay = document.getElementById("cert-modal-overlay");
-const certModalImg = document.getElementById("cert-modal-img");
-const certModalClose = document.getElementById("cert-modal-close");
-const certModalPrev = document.getElementById("cert-modal-prev");
-const certModalNext = document.getElementById("cert-modal-next");
-
-const certImages = Array.from(document.querySelectorAll(".certificate__img"));
-let currentCertIndex = 0;
-
-const openCertModal = (index) => {
-  currentCertIndex = index;
-  certModalImg.src = certImages[currentCertIndex].src;
-  certModalImg.alt = certImages[currentCertIndex].alt;
-  certModal.classList.add("active");
-  certOverlay.classList.add("active");
-  document.body.style.overflow = "hidden";
-  updateNavButtons();
-};
-
-const closeCertModal = () => {
-  certModal.classList.remove("active");
-  certOverlay.classList.remove("active");
-  document.body.style.overflow = "";
-};
-
-const updateNavButtons = () => {
-  certModalPrev.classList.toggle(
-    "hidden",
-    certImages.length <= 1 || currentCertIndex === 0,
-  );
-  certModalNext.classList.toggle(
-    "hidden",
-    certImages.length <= 1 || currentCertIndex === certImages.length - 1,
-  );
-};
-
-document.querySelectorAll(".certificate__card").forEach((card, i) => {
-  card.style.cursor = "zoom-in";
-  card.addEventListener("click", (e) => {
-    e.preventDefault();
-    openCertModal(i);
-  });
-});
-certModalClose.addEventListener("click", closeCertModal);
-certOverlay.addEventListener("click", closeCertModal);
-
-certModalPrev.addEventListener("click", () => {
-  if (currentCertIndex > 0) {
-    currentCertIndex--;
-    certModalImg.src = certImages[currentCertIndex].src;
-    certModalImg.alt = certImages[currentCertIndex].alt;
-    updateNavButtons();
-  }
-});
-
-certModalNext.addEventListener("click", () => {
-  if (currentCertIndex < certImages.length - 1) {
-    currentCertIndex++;
-    certModalImg.src = certImages[currentCertIndex].src;
-    certModalImg.alt = certImages[currentCertIndex].alt;
-    updateNavButtons();
-  }
-});
-
-document.addEventListener("keydown", (e) => {
-  if (!certModal.classList.contains("active")) return;
-  if (e.key === "Escape") closeCertModal();
-  if (e.key === "ArrowLeft") certModalPrev.click();
-  if (e.key === "ArrowRight") certModalNext.click();
 });
 
 /*=============== TYPING ANIMATION ===============*/
@@ -280,7 +207,6 @@ let loaderTextIndex = 0;
 
 const typeLoader = () => {
   const current = loaderTexts[loaderTextIndex];
-
   if (loaderCharIndex <= current.length) {
     loaderTyping.textContent = current.substring(0, loaderCharIndex);
     loaderCharIndex++;
@@ -301,3 +227,518 @@ window.addEventListener("load", () => {
     loader.classList.add("hidden");
   }, 2800);
 });
+
+/*=============== GITHUB ACTIVITY ===============*/
+const GITHUB_USERNAME = "Mahesa101";
+
+const githubIconMap = {
+  PushEvent: "ri-git-commit-line",
+  CreateEvent: "ri-git-branch-line",
+  PullRequestEvent: "ri-git-pull-request-line",
+  WatchEvent: "ri-star-line",
+  ForkEvent: "ri-git-fork-line",
+  IssuesEvent: "ri-error-warning-line",
+  DeleteEvent: "ri-delete-bin-line",
+  default: "ri-code-line",
+};
+
+const githubLabelMap = {
+  PushEvent: "Pushed to",
+  CreateEvent: "Created",
+  PullRequestEvent: "Pull request on",
+  WatchEvent: "Starred",
+  ForkEvent: "Forked",
+  IssuesEvent: "Issue on",
+  DeleteEvent: "Deleted from",
+  default: "Activity on",
+};
+
+const timeAgo = (dateStr) => {
+  const diff = Math.floor((Date.now() - new Date(dateStr)) / 1000);
+  if (diff < 60) return `${diff}s ago`;
+  if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
+  if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
+  return `${Math.floor(diff / 86400)}d ago`;
+};
+
+const animateNumber = (el, target) => {
+  let current = 0;
+  const step = Math.ceil(target / 40);
+  const timer = setInterval(() => {
+    current += step;
+    if (current >= target) {
+      current = target;
+      clearInterval(timer);
+    }
+    el.textContent = current;
+  }, 30);
+};
+
+const fetchGithub = async () => {
+  try {
+    const [userRes, reposRes, eventsRes] = await Promise.all([
+      fetch(`https://api.github.com/users/${GITHUB_USERNAME}`),
+      fetch(
+        `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100`,
+      ),
+      fetch(
+        `https://api.github.com/users/${GITHUB_USERNAME}/events/public?per_page=30`,
+      ),
+    ]);
+
+    const user = await userRes.json();
+    const repos = await reposRes.json();
+    const events = await eventsRes.json();
+
+    /* ── Stats ── */
+    const totalStars = repos.reduce((acc, r) => acc + r.stargazers_count, 0);
+    const pushEvents = events.filter((e) => e.type === "PushEvent");
+    const totalCommits = pushEvents.reduce(
+      (acc, e) => acc + (e.payload.commits?.length || 0),
+      0,
+    );
+
+    /* streak: hitung hari berturut-turut dari events */
+    const activeDays = [
+      ...new Set(events.map((e) => new Date(e.created_at).toDateString())),
+    ];
+    let streak = 0;
+    const today = new Date();
+    for (let i = 0; i < 30; i++) {
+      const d = new Date(today);
+      d.setDate(today.getDate() - i);
+      if (activeDays.includes(d.toDateString())) streak++;
+      else break;
+    }
+
+    /* ── Activity list (optional element) ── */
+    const list = document.getElementById("github-activity-list");
+    if (list) {
+      list.innerHTML = "";
+      const filtered = events.slice(0, 6);
+
+      if (filtered.length === 0) {
+        list.innerHTML = `<li class="github__activity-item github__loading">No recent activity found.</li>`;
+      } else {
+        filtered.forEach((event) => {
+          const icon = githubIconMap[event.type] || githubIconMap.default;
+          const label = githubLabelMap[event.type] || githubLabelMap.default;
+          const repo = event.repo.name.replace(`${GITHUB_USERNAME}/`, "");
+          const time = timeAgo(event.created_at);
+
+          const li = document.createElement("li");
+          li.classList.add("github__activity-item");
+          li.innerHTML = `
+            <i class="${icon}"></i>
+            <div class="github__activity-meta">
+              <span class="github__activity-name">${label} <b>${repo}</b></span>
+              <span class="github__activity-time">${time}</span>
+            </div>
+          `;
+          list.appendChild(li);
+        });
+      }
+    }
+  } catch (err) {
+    const list = document.getElementById("github-activity-list");
+    if (list) {
+      list.innerHTML = `
+        <li class="github__activity-item github__loading">
+          Failed to load activity. Check your connection.
+        </li>
+      `;
+    }
+  }
+
+  /* ── Stats statis ── */
+  const totalProjects = document.querySelectorAll(".tcg__card").length;
+  const totalCerts = document.querySelectorAll(".certificate__card").length;
+
+  const elProjects = document.getElementById("stat-projects");
+  const elCerts = document.getElementById("stat-certs");
+  const elExp = document.getElementById("stat-exp");
+
+  if (elProjects) animateNumber(elProjects, totalProjects);
+  if (elCerts) animateNumber(elCerts, totalCerts);
+  if (elExp) animateNumber(elExp, 1);
+};
+
+fetchGithub();
+
+/*=============== SKILLS SEE MORE ===============*/
+const skillsGrid = document.querySelector(".about__skills");
+const allSkills = Array.from(skillsGrid.querySelectorAll(".button__skill"));
+const maxVisible = 6;
+
+if (allSkills.length > maxVisible) {
+  allSkills.forEach((skill, i) => {
+    if (i >= maxVisible) skill.style.display = "none";
+  });
+
+  const seeMoreBtn = document.createElement("div");
+  seeMoreBtn.classList.add("skills__toggle");
+  seeMoreBtn.innerHTML = `<span>See More <i class="ri-arrow-down-s-line"></i></span>`;
+  skillsGrid.insertAdjacentElement("afterend", seeMoreBtn);
+
+  let expanded = false;
+
+  seeMoreBtn.addEventListener("click", () => {
+    expanded = !expanded;
+
+    allSkills.forEach((skill, i) => {
+      if (i >= maxVisible) {
+        skill.style.display = expanded ? "flex" : "none";
+      }
+    });
+
+    seeMoreBtn.innerHTML = expanded
+      ? `<span>See Less <i class="ri-arrow-up-s-line"></i></span>`
+      : `<span>See More <i class="ri-arrow-down-s-line"></i></span>`;
+  });
+}
+
+/*=============== PROJECT MODAL 3D ===============*/
+const projectPortal = document.getElementById("projectPortal");
+const projectOverlay = document.getElementById("projectOverlay");
+const project3DCard = document.getElementById("project3DCard");
+let projectTiltInstance = null;
+
+const openProjectModal = (
+  name,
+  type,
+  category,
+  descDetail,
+  imgSrc,
+  techs,
+  githubUrl,
+  demoUrl,
+  rarity,
+) => {
+  /* ── TCG Card kiri ── */
+  document.getElementById("modal3DName").textContent = name;
+  document.getElementById("modal3DType").textContent = type;
+  document.getElementById("modal3DImg").src = imgSrc;
+  document.getElementById("modal3DImg").alt = name;
+  document.getElementById("modal3DCategory").textContent =
+    "// " + category.toUpperCase();
+  document.getElementById("modal3DRarity").textContent = rarity;
+
+  /* Deskripsi singkat di kartu */
+  document.getElementById("modal3DDesc").textContent =
+    descDetail.substring(0, 80) + "...";
+
+  /* Tech badges di kartu */
+  const statsEl = document.getElementById("modal3DStats");
+  statsEl.innerHTML = techs
+    .map(
+      (t) => `<span class="tcg__stat"><i class="ri-code-line"></i> ${t}</span>`,
+    )
+    .join("");
+
+  /* ── Panel kanan ── */
+  document.getElementById("projectPanelCategory").textContent =
+    "// " + category.toUpperCase();
+  document.getElementById("projectPanelTitle").textContent = name;
+  document.getElementById("projectPanelDesc").textContent = descDetail;
+
+  /* Tech badges di panel */
+  const techEl = document.getElementById("projectPanelTech");
+  techEl.innerHTML = techs
+    .map((t) => `<span class="project-portal__tech-badge">${t}</span>`)
+    .join("");
+
+  document.getElementById("projectBtnGithub").href = githubUrl || "#";
+  document.getElementById("projectBtnDemo").href = demoUrl || "#";
+
+  /* ── Buka modal ── */
+  projectPortal.classList.add("active");
+  projectOverlay.classList.add("active");
+  document.body.style.overflow = "hidden";
+
+  /* Tunggu animasi entry selesai (600ms), baru init VanillaTilt */
+  setTimeout(() => {
+    /* Hapus transition agar VanillaTilt bisa gerak bebas */
+    project3DCard.classList.add("tilt-ready");
+
+    if (typeof VanillaTilt !== "undefined") {
+      /* Destroy dulu jika ada instance sebelumnya */
+      if (project3DCard.vanillaTilt) {
+        project3DCard.vanillaTilt.destroy();
+      }
+      VanillaTilt.init(project3DCard, {
+        max: 15,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.2,
+        perspective: 1000,
+        scale: 1.04,
+        reset: true,
+      });
+      projectTiltInstance = project3DCard.vanillaTilt;
+    }
+  }, 700);
+};
+
+const closeProjectModal = () => {
+  if (projectTiltInstance) {
+    projectTiltInstance.destroy();
+    projectTiltInstance = null;
+  }
+  project3DCard.classList.remove("tilt-ready");
+  projectPortal.classList.remove("active");
+  projectOverlay.classList.remove("active");
+  document.body.style.overflow = "";
+};
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeProjectModal();
+});
+
+/*=============== CERT 3D MODAL ===============*/
+const cert3DPortal = document.getElementById("cert3DPortal");
+const cert3DOverlay = document.getElementById("cert3DOverlay");
+const cert3DCard = document.getElementById("cert3DCard");
+let cert3DTilt = null;
+
+const openCert3DModal = (title, imgSrc, linkUrl, desc) => {
+  document.getElementById("cert3DImg").src = imgSrc;
+  document.getElementById("cert3DTitle").textContent = title;
+  document.getElementById("cert3DDesc").textContent = desc;
+  document.getElementById("cert3DLink").href = linkUrl || "#";
+
+  cert3DPortal.classList.add("active");
+  cert3DOverlay.classList.add("active");
+  document.body.style.overflow = "hidden";
+
+  setTimeout(() => {
+    if (typeof VanillaTilt !== "undefined") {
+      VanillaTilt.init(cert3DCard, {
+        max: 12,
+        speed: 800,
+        glare: true,
+        "max-glare": 0.2,
+        perspective: 1200,
+        scale: 1.03,
+        reset: true,
+      });
+      cert3DTilt = cert3DCard.vanillaTilt;
+    }
+  }, 400);
+};
+
+const closeCert3DModal = () => {
+  if (cert3DTilt) {
+    cert3DTilt.destroy();
+    cert3DTilt = null;
+  }
+  cert3DPortal.classList.remove("active");
+  cert3DOverlay.classList.remove("active");
+  document.body.style.overflow = "";
+};
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeProjectModal();
+    closeCert3DModal();
+  }
+});
+
+
+/*=============== PROJECTS SEE MORE ===============*/
+(() => {
+  const container = document.querySelector('.tcg__container');
+  if (!container) return;
+ 
+  const cards = Array.from(container.querySelectorAll('.tcg__card'));
+  if (cards.length === 0) return;
+ 
+  let expanded = false;
+  let btnEl = null;
+ 
+  const getLimit = () => (window.innerWidth >= 900 ? 6 : 3);
+ 
+  const render = () => {
+    const limit = getLimit();
+    cards.forEach((card, i) => {
+      card.style.display = expanded || i < limit ? '' : 'none';
+    });
+ 
+    if (btnEl) btnEl.remove();
+    if (cards.length <= limit) return;
+ 
+    btnEl = document.createElement('div');
+    btnEl.classList.add('see-more__toggle');
+    btnEl.innerHTML = expanded
+      ? `<span>See Less <i class="ri-arrow-up-s-line"></i></span>`
+      : `<span>See More <i class="ri-arrow-down-s-line"></i></span>`;
+    container.insertAdjacentElement('afterend', btnEl);
+ 
+    btnEl.addEventListener('click', () => {
+      expanded = !expanded;
+      render();
+      if (!expanded) container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  };
+ 
+  render();
+ 
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(render, 150);
+  });
+})();
+ 
+/*=============== CERTIFICATES SEE MORE ===============*/
+(() => {
+  const container = document.querySelector('.certificate__container');
+  if (!container) return;
+ 
+  const cards = Array.from(container.querySelectorAll('.certificate__card'));
+  if (cards.length === 0) return;
+ 
+  let expanded = false;
+  let btnEl = null;
+  let initialized = false;
+ 
+  const getLimit = () => (window.innerWidth >= 720 ? 6 : 2);
+ 
+  const animateIn = (card, delayMs = 0) => {
+    card.style.removeProperty('opacity');
+    card.style.removeProperty('transform');
+    card.style.removeProperty('visibility');
+    card.style.removeProperty('transition');
+    card.removeAttribute('data-sr-id');
+    card.style.display = 'flex';
+    card.classList.remove('cert-revealed');
+    card.style.animationDelay = `${delayMs}ms`;
+    void card.offsetWidth;
+    card.classList.add('cert-revealed');
+  };
+ 
+  const render = () => {
+    const limit = getLimit();
+ 
+    cards.forEach((card, i) => {
+      if (expanded || i < limit) {
+        if (card.style.display === 'none') {
+          animateIn(card, Math.max(0, (i - limit) * 80));
+        } else if (!initialized) {
+          animateIn(card, i * 80);
+        }
+      } else {
+        if (card.style.display !== 'none') {
+          if (typeof sr !== 'undefined') sr.clean(card);
+          card.classList.remove('cert-revealed');
+          card.style.animationDelay = '';
+          card.style.display = 'none';
+        }
+      }
+    });
+ 
+    initialized = true;
+ 
+    if (btnEl) btnEl.remove();
+    if (cards.length <= limit) return;
+ 
+    btnEl = document.createElement('div');
+    btnEl.classList.add('see-more__toggle');
+    btnEl.innerHTML = expanded
+      ? `<span>See Less <i class="ri-arrow-up-s-line"></i></span>`
+      : `<span>See More <i class="ri-arrow-down-s-line"></i></span>`;
+    container.insertAdjacentElement('afterend', btnEl);
+ 
+    btnEl.addEventListener('click', () => {
+      expanded = !expanded;
+      render();
+      if (!expanded) container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  };
+ 
+  render();
+ 
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(render, 150);
+  });
+})();
+ 
+/*=============== ANIMATION — OBSERVER HELPER ===============*/
+const createObserver = (elements, animClass, options = {}) => {
+  const config = { threshold: 0.12, rootMargin: "0px 0px -60px 0px", ...options };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add(animClass);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, config);
+  elements.forEach((el) => observer.observe(el));
+};
+ 
+/*=============== ANIMATION — SERVICES GOTL (DESKTOP) ===============*/
+(() => {
+  const grid = document.querySelector(".gotl__grid");
+  const cards = document.querySelectorAll(".gotl__card");
+  if (!grid || !cards.length) return;
+ 
+  const delays = ["0.05s", "0.13s", "0.21s", "0.29s"];
+  cards.forEach((card, i) => card.style.setProperty("--anim-delay", delays[i] ?? "0.05s"));
+ 
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      grid.classList.add("anim-ready");
+      cards.forEach((card) => card.classList.add("anim-in"));
+      obs.unobserve(entry.target);
+    });
+  }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+ 
+  obs.observe(grid);
+})();
+ 
+/*=============== ANIMATION — SERVICES MOBILE ===============*/
+(() => {
+  const cards = document.querySelectorAll(".services__card");
+  if (!cards.length) return;
+  createObserver(Array.from(cards), "anim-in", { threshold: 0.1 });
+})();
+ 
+/*=============== ANIMATION — TCG PROJECT CARDS ===============*/
+(() => {
+  const container = document.querySelector(".tcg__container");
+  if (!container) return;
+ 
+  const delays = ["0.05s","0.13s","0.21s","0.29s","0.37s","0.45s","0.53s","0.61s","0.69s"];
+  const allCards = () => Array.from(container.querySelectorAll(".tcg__card"));
+ 
+  const observeCards = () => {
+    const all = allCards();
+    const unAnimated = all.filter(c => !c.classList.contains("anim-in"));
+ 
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("anim-in");
+        obs.unobserve(entry.target);
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" });
+ 
+    unAnimated.forEach((card) => {
+      const idx = all.indexOf(card);
+      card.style.setProperty("--anim-delay", delays[idx] ?? "0.05s");
+      obs.observe(card);
+    });
+  };
+ 
+  observeCards();
+ 
+  new MutationObserver(observeCards).observe(container, {
+    subtree: false,
+    attributes: true,
+    attributeFilter: ["style"],
+    childList: false,
+  });
+})();
